@@ -2,7 +2,7 @@ package parker.learningJava;
 
 public class Main {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		boolean gameOver = true;
 		int score = 800;
 		int levelCompleted = 5;
@@ -46,20 +46,22 @@ public class Main {
 		highScorePosition = calculateHighScorePosition(10);
 		displayHighScorePosition("Baxter", highScorePosition);
 	}
-	public static void displayHighScorePosition (String playerName, int highScorePosition){
+
+	public static void displayHighScorePosition(String playerName, int highScorePosition) {
 		System.out.println(playerName + " managed to get into position " + highScorePosition + " on the leader board");
 	}
 
-	public static int calculateHighScorePosition (int playerScore){
-		if (playerScore >=1000){
-			return 1;
-		} else if(playerScore >= 500 && playerScore <1000){
-			return 2;
-		} else if (playerScore >= 100 && playerScore <500){
-			return 3;
-		} else {
-			return 4;
+
+	public static int calculateHighScorePosition(int playerScore) {
+		int position = 4;
+		if (playerScore >= 1000) {
+			position = 1;
+		} else if (playerScore >= 500) {
+			position = 2;
+		} else if (playerScore >= 100) {
+			position = 3;
 		}
+		return position;
 	}
 	public static int calculateScore(boolean gameOver, int score, int levelCompleted, int bonus){
 		if(gameOver){
